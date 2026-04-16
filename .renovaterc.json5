@@ -1,4 +1,16 @@
 {
   $schema: "https://docs.renovatebot.com/renovate-schema.json",
   extends: ["github>SolkorTech/renovate-config"],
+  packageRules: [
+    {
+      description: "Auto-merge trusted GitHub Actions",
+      matchManagers: ["github-actions"],
+      matchPackageNames: [
+        "zizmorcore/zizmor-action",
+        "docker.io/rhysd/actionlint",
+      ],
+      automerge: true,
+      matchUpdateTypes: ["minor", "patch", "digest"],
+    },
+  ],
 }
